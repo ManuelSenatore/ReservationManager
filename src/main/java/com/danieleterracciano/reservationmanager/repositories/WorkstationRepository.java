@@ -19,8 +19,7 @@ public interface WorkstationRepository extends PagingAndSortingRepository<Workst
 	public Page<Workstation> findWorkstationsByCityAndWSType(@Param("c") String city, @Param("t") WorkstationType t,
 															 Pageable p);
 
-	@Query(nativeQuery = true, value = "SELECT * FROM workstations WHERE WStype = :t")
+	@Query(value = "SELECT u FROM Workstation u WHERE u.WSType = :t")
 	public Page<Workstation> findWorkstationByWSType(@Param("t") WorkstationType t, Pageable p);
-	
 	
 }
